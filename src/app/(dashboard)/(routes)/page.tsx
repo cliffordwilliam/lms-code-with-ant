@@ -5,7 +5,7 @@ const Page = () => {
   return (
     <main>
       <h1>Home</h1>
-      <UserButton afterSignOutUrl="/" />
+      <UserButton afterSignOutUrl="/sign-in" />
     </main>
   );
 };

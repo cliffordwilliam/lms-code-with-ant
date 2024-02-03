@@ -124,6 +124,10 @@ add these
 do not delete the rest wasting time
 html,body,:root{height:100%;}
 
+---
+
+Ok now working on the dashboard layout
+
 # New info
 
 not important but u can do this faster npx create bla bla
