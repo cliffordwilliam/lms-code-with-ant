@@ -74,6 +74,56 @@ thats it for now
 
 NAME IS sign-in, cuz later use clerk, must be like thisss
 
+ADD CLERK
+
+go to clerk.com
+
+sign in with github
+
+go add google and email
+
+then go find API KEY in the dashboard somewhere idk in the UI whatever
+
+go add .env to the gitignore
+
+go read the docs: https://clerk.com/docs/quickstarts/nextjs
+
+install this: npm install @clerk/nextjs
+
+then grab their root layout - DO NOT COPY PASTE, HUG HTML WITH ClerkProvider from @clerk/nextjs
+
+make middleware - copy from doc (middleware is sibling to .env)
+
+create the sign in and sign up, copas from doc, MAKE SURE DIR IS CORRECT
+
+`[[...sign-up]]` = so it grabs all params, if got no param it works also
+WE NEED THE FOLLOWING COMPS - sign-up && sign-in = FIND IN DOC
+
+then grab the other env file for sign in and up
+they moved it here https://clerk.com/docs/references/nextjs/custom-signup-signin-pages
+
+ok so u can actually modify the endpoint for sign in and up, just make sure u update the folder names and the .env value names later
+
+ok last, need to be able to log out. USE THE USER BUTTON from clerk/nextjs
+
+```tsx
+<UserButton afterSignOutUrl="/" />
+```
+
+done tahts it, protected, and can login and wahtever
+
+I USE SRC!! SO PUT MIDDLEWARE IN SRC YAA
+
+DONE
+
+wanna center the login register clerk formies? use layout sibling to the (routes)
+
+BASE STYLING
+go to the global css
+add these
+do not delete the rest wasting time
+html,body,:root{height:100%;}
+
 # New info
 
 not important but u can do this faster npx create bla bla
@@ -88,3 +138,6 @@ wrong version? just edit the config then npm i again no prob
 create a group dir to group route
 u can move the root page here btw no prob, it will be still root if parent is still directly app (i mean parent without the (dir like this))
 then if u got layout sibling to the group dir, that layout will only apply to the grouped pages
+
+READ UP THERE HOW TO SETUP CLERK - BY DEFAULT IT PROTECTS EVERYTHING IF NOT LOGGED IN
+can edit this so that there are other pub pages
