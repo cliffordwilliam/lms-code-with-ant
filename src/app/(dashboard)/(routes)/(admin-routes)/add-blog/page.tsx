@@ -1,11 +1,12 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
-import { UserButton } from "@clerk/nextjs";
 
 const Page = () => {
   return (
-    <>
-      <UserButton afterSignOutUrl="/sign-in" />
-    </>
+    <div className="p-6">
+      <Button>Add Blog</Button>
+    </div>
   );
 };
 

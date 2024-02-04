@@ -128,6 +128,61 @@ html,body,:root{height:100%;}
 
 Ok now working on the dashboard layout
 
+sidebar is fixed top0 bot0, 100height, set width,
+
+then sidebar hugs the Logo comp and the SidebarRoutes comp
+
+SidebarRoutes maps SidebarRoute THESE 2 ARE CLIENT COMP (PATHNAME STYLING && ROUTER)
+
+note, if u are passing rpom, craete type in the receiver (or interface)
+
+here i used interface to create the props type
+
+now that sidebar is done, lets create the child (the thing on right side of sidebar)
+
+since sidebar is fixed in position, the main need pad to push it to right
+
+done for now the main thing
+
+working on the navbar now - this is its own compo
+
+inside the navbar, need to make another compo for the MobileSidebar - contains only the menu icon from lucide
+
+NOW HOW TO MAKE THAT INTO A BTN THAT OPENS A MOBILE MENU?? SHADCN
+
+npx shadcn-ui@latest add sheet
+
+then just do this and ur done
+
+```tsx
+<Sheet>
+  <SheetTrigger className="md:hidden pr-4 hover:opacity-75 transition">
+    <Menu />
+  </SheetTrigger>
+  <SheetContent side={"left"} className="p-0 bg-white">
+    <Sidebar />
+  </SheetContent>
+</Sheet>
+```
+
+Sidebar is being reused here, one in the pc version (fixed) - the other in here not fixed, but inside the sheet content
+
+so later above remove the fixed class from the sidebar comp
+
+add user button to the navbar
+
+done, so basically there is menu (on side or on click) - on the left side
+then theres burger + ur account from clerk - on navabr
+
+thats it
+
+in this tutorial he created a button to navifate to either dashboard or the teacher endpoint fe
+when ur in the dashboard, the sidebar menu is set a, in teacher it is set b
+
+buttt for this one i am making a diff dashboard menu items based on who is logged in instead
+
+then I am making the create blog and services USE CLIENT
+
 # New info
 
 not important but u can do this faster npx create bla bla
@@ -145,3 +200,28 @@ then if u got layout sibling to the group dir, that layout will only apply to th
 
 READ UP THERE HOW TO SETUP CLERK - BY DEFAULT IT PROTECTS EVERYTHING IF NOT LOGGED IN
 can edit this so that there are other pub pages
+
+dynamic class??
+className={cn(
+"flex items-center gap-2 py-4 px-6 hover:bg-slate-300/20",
+isActive && "bg-sky-200/20 hover:bg-sky-200/20"
+)}
+
+      cn is from
+      import { cn } from "@/lib/utils";
+
+      this is from shadcn
+
+navbar or items that are links
+
+```tsx
+const isActive =
+  (pathName === "/" && href === "/") || // root?
+  pathName === href || // other? || sub other?
+  pathName?.startsWith(`${href}/`);
+```
+
+use client comp that has links colored when they r active
+
+make a mobile menu open on click?? shadcn SHEET
+see above how i did it
