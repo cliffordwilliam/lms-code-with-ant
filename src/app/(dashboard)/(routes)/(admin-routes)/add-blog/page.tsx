@@ -18,9 +18,10 @@ import {
 import { Input } from "@/components/ui/input";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.bubble.css";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
+import dynamic from "next/dynamic";
 
 const formSchema = z.object({
   title: z.string().min(1, { message: "Title is required" }),
@@ -28,6 +29,10 @@ const formSchema = z.object({
 
 const Page = () => {
   const [quillValue, setQuillValue] = useState("");
+  const ReactQuill = useMemo(
+    () => dynamic(() => import("react-quill"), { ssr: false }),
+    []
+  );
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: { title: "" },
@@ -69,7 +74,6 @@ const Page = () => {
               </FormItem>
             )}
           />
-          {/* store content */}
           <ReactQuill
             theme="bubble"
             value={quillValue}
