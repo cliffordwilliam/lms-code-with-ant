@@ -183,6 +183,29 @@ buttt for this one i am making a diff dashboard menu items based on who is logge
 
 then I am making the create blog and services USE CLIENT
 
+---
+
+npx shadcn-ui@latest add form
+npx shadcn-ui@latest add input
+
+checking out other tut for the blog post
+
+https://www.youtube.com/watch?v=DpYE5zPDRVQ&t=1192s
+
+here they use the
+npm i react-quill
+
+---
+
+I want to add new post rn, so add the npm i mongodb
+
+setup as usual, but later in the onSubmit use the form + the quill state
+
+then i want to use toast to show the errors
+npm i react-hot-toast
+go to comp dir and create providers dir > toasterProvider.tsx CLIENT COMP
+hug the root layout with this provider whatever, providers are just like layout but they allow u to use extra shit inside later
+
 # New info
 
 not important but u can do this faster npx create bla bla
@@ -225,3 +248,5 @@ use client comp that has links colored when they r active
 
 make a mobile menu open on click?? shadcn SHEET
 see above how i did it
+
+use the optional func in zod to make a col be optional
